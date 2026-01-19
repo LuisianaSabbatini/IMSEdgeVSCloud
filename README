@@ -1,0 +1,15 @@
+The project is structured in many python files, each dedicated to a specific subtask of the entire work:
+
+1. rawDataInput.py - contains the code for reading the raw signals and save everything into an output file (ims_1test_raw.parquet)
+
+2. featuresExtraction.py - contains the code for reading the raw data contained in the parquet file and extract time, frequency, and time-frequency domains features from the raw signals. These features are then saved in another parquet file.
+
+3. modelTraining.py - contains the code for training the two ML models (RF and XGB) on the features, and the DL model (CNN) on the raw signals. Support variables (scaling parameters, label encoders, etc) are saved for use in the simulated deployments. Trained models are saved for utilization within the simulated deployments. Specifically, the CNN is exported in both originally trained version, and TFLite version (dedicated to the edge deployment).
+
+4. producer_sensor.py - contains the code for starting the producer, which simulated a data stream.
+
+5. consumer_cloud.py - contains the code for running the cloud consumer. It can be launched specifying working params (the cloud profile - low default -  eventual scaler, encoder, and the inference model to be applied - RF, XGB, CNN)
+
+6. consumer_edge.py - contains the code for running the edge consumer. It can be launched specifying working params ( the edge profile - rpi3 default - eventual scaler, encoder, and the inference model to be applied - RF, XGB, CNN)
+
+Other python files inside this project contain the code for reporting and debugging purposes.

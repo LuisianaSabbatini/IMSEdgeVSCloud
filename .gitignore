@@ -1,0 +1,9 @@
+/grafici/
+/IMS/
+/models/
+/.venv/
+/backoffice/
+/emissions_logs/
+/.idea/
+/ims_1test_features.parquet
+/ims_1test_raw.parquet
